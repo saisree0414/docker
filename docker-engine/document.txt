@@ -1,0 +1,17 @@
+docker engine is a simply host with docker installed on it.
+docker daemon -> rest api server -> docker cli
+  docker daemon is a background process manages the docker object like images, containers, network.
+  rest api server is a programs can talk to the daemon and send instruction
+  docker cli is command line tool ot interact with docker daemon and it should not be on the same node, we can also interact with remote docker daemon with cli installed on our server.
+
+  docker daemon running on remote host and CLI   installed on our system, even we can run docker commands on remote from our local.
+    
+    docker -H=10.1.1.1 --telemetry run nginx
+
+    docker daemon - containerd(general purpose run time) - runc 
+
+    docker namespace : namespace is used to isolate the docker images and other objects and same nginx image, we can run in docker engine and docker host as well and also same pid is also may assigned.
+    docker cgroups: controlled groups is to limit the resource like CPU and memeory.
+      docker run --cpus=0.5 nginx
+
+      docker run --mound type=bind source=/var/opt/sql, target=/var/opt/sql mysql
